@@ -14,9 +14,9 @@
         </nav>
         <div class="content">
             <h1>Our website is <span>coming soon</span></h1>
-            <form>
+            <form onsubmit="openPopup(event)">
                 <input type="email" placeholder="Email Address" name="email" id="email" autocomplete="off" required>
-                <button type="button" class="btn" onclick="openPopup()" >Subscribe</button>
+                <button type="submit" class="btn">Subscribe</button>
             </form>
             <div class="links">
                 <a href=""><img src="./images/dribble.png" alt="dribble social icon"></a>
@@ -34,8 +34,10 @@
     </div>
     <script>
         var popup = document.getElementById("popup");
-        function openPopup(){
+        function openPopup(event){
+            event.preventDefault();
             popup.classList.add("open-popup");
+            document.getElementById("email").value="";
         }
         function closePopup(){
             popup.classList.remove("open-popup");
